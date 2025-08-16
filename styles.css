@@ -1,0 +1,476 @@
+/* =======================================
+   === 1. Reset & Globales ===
+   ======================================= */
+/* Rules that apply to the entire page to ensure a consistent foundation. */
+html, body {
+    overflow-x: hidden; /* Avoid horizontal scrolling */
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #2c3e50; /* Default text colour */
+}
+
+img, video, iframe {
+    max-width: 100%; 
+    height: auto;
+}
+
+/* =======================================
+   === 2. Main Layout  ===
+   ======================================= */
+/* Styles for the main page structure (container, sidebar, content). */
+
+/* Main layout container */
+.container {
+    display: flex;
+    min-height: 100vh;
+    gap: 20px;
+    background-color: #bdc3c7;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Sidebar (left columna) */
+.sidebar {
+    flex: 0 0 220px; /* Fixed width on desktop */
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    box-sizing: border-box;
+}
+
+/* Main content (right column) */
+.content {
+    flex: 1;
+    padding: 40px;
+    background-color: #ecf0f1;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    box-sizing: border-box;
+    position: relative;
+}
+
+.content section {
+    margin-bottom: 40px;
+}
+
+.content h1 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+/* =======================================
+   === 3. Components ===
+   ======================================= */
+/* Reusable components, grouped by functionality. */
+
+/* --- 3.1 Profile & Contact (Sidebar) --- */
+.sidebar .profile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.sidebar-separator {
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 15px 0;
+    width: 100%;
+    padding-bottom: 5px;
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    flex-shrink: 0;
+}
+
+.profile h2 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.profile p {
+    font-size: 0.9em;
+}
+
+.contact-info {
+    list-style: none;
+    width: 100%;
+    padding-left: 0;
+    margin: 0;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+    gap: 15px;
+}
+
+.contact-icon {
+    font-size: 1.2em;
+    color: #1abc9c;
+    width: 25px;
+    text-align: center;
+}
+
+.contact-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.contact-label {
+    font-weight: bold;
+    font-size: 0.9em;
+    color: #ecf0f1;
+}
+
+.contact-info a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Contact toggle button (corner) */
+.sidebar .contact-toggle.corner {
+    display: none; /* Hidden by default on desktop */
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 20;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: rgba(255,255,255,0.06);
+    color: inherit;
+    padding: 6px;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+    transition: transform .18s ease, background .18s ease;
+}
+
+.sidebar .contact-toggle.corner .arrow {
+    display: inline-block;
+    transition: transform 0.25s ease;
+}
+
+.sidebar .contact-toggle.corner[aria-expanded="true"] .arrow {
+    transform: rotate(180deg);
+}
+
+/* --- 3.2 Tab Navigation & Hamburger Button --- */
+/* Tab container */
+.tabs-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #34495e;
+    border-radius: 8px;
+    padding: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+}
+
+/* Tabs (buttons) */
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+}
+
+.tab-button {
+    padding: 10px 18px;
+    font-size: 0.85rem;
+    border: none;
+    background-color: #34495e;
+    color: #ecf0f1;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tab-button:hover {
+    background-color: #3d566e;
+}
+
+.tab-button.active {
+    background-color: #1abc9c;
+    color: #fff;
+    border-radius: 6px;
+}
+
+/* Hamburger button (hidden on desktop) */
+.tabs-hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: #ecf0f1;
+    cursor: pointer;
+    font-size: 1.8rem;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+/* --- 3.3 Projects --- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.project-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+/* --- 3.4 Popups --- */
+/* Basic rules for both popups */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1002;
+}
+
+.popup.is-open {
+    display: flex;
+}
+
+.popup-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
+    margin: 20px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    animation: popupExpand 0.5s ease forwards;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+.popup-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Specific styles for the project popup */
+.project-popup .popup-content {
+    width: min(90vw, 500px);
+    max-height: 85vh;
+    overflow: auto;
+}
+
+/* Popup animation */
+@keyframes popupExpand {
+    0% { transform: scale(0, 0); opacity: 0; }
+    50% { transform: scale(1, 0.05); opacity: 1; }
+    100% { transform: scale(1, 1); opacity: 1; }
+}
+
+/* =======================================
+   === 4. Media Queries ===
+   ======================================= */
+/* Rules for mobile devices. In this approach, the base styles are for desktop and are overwritten for mobile. */
+
+/* ------------------------------------------------------------------
+   === Styles for screens <= 768px (Mobile) ===
+   ------------------------------------------------------------------ */
+@media (max-width: 768px) {
+    /* Layout */
+    .container {
+        flex-direction: column;
+        gap: 12px;
+        padding: 20px;
+    }
+
+    .sidebar {
+        flex: none;
+        width: 100%;
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .content {
+        padding: 40px;
+    }
+
+    /* Profile */
+    .sidebar .profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 0 auto 8px;
+        max-width: 360px;
+        padding-right: 0;
+    }
+
+    .sidebar .profile-pic {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 8px;
+    }
+
+    .sidebar .profile h2 {
+        margin: 0;
+        font-size: 1.05rem;
+    }
+
+    .sidebar .profile p {
+        margin: 0;
+        font-size: 0.85rem;
+    }
+    
+    .sidebar .profile {
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+
+    /* Toggle button and contact list */
+    .sidebar .contact-toggle.corner {
+        display: inline-flex;
+        top: 8px;
+        right: 8px;
+        left: auto;
+    }
+
+    .sidebar .contact-info {
+        transition: max-height 0.28s ease, opacity 0.22s ease;
+        max-height: 1000px;
+        opacity: 1;
+        overflow: hidden;
+        width: 100%;
+        max-width: 360px;
+        padding: 8px 12px;
+        margin: 8px auto 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .contact-item {
+        justify-content: left;
+    }
+
+    .sidebar .contact-info.collapsed {
+        max-height: 0;
+        opacity: 0;
+        padding: 0;
+        margin: 0;
+    }
+
+    .sidebar .contact-info li {
+        width: 100%;
+        text-align: left;
+        max-width: 170px;
+    }
+    
+    /* Tab navigation */
+    .tabs-container {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .tabs-hamburger {
+        display: flex;
+        position: static;
+        margin: 4px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .tabs {
+        display: none;
+        flex-direction: column;
+        width: 200px;
+        margin-top: 4px;
+        padding: 4px 0;
+        background-color: #34495e;
+        border-radius: 6px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    
+    .tabs.show {
+        display: flex;
+    }
+
+    .tab-button {
+        width: 100%;
+        text-align: left;
+        border-radius: 0;
+        padding: 8px 12px;
+    }
+}
+
+/* ------------------------------------------------------------------
+   === Styles for very narrow screens (<= 420px) ===
+   ------------------------------------------------------------------ */
+@media (max-width: 420px) {
+    .sidebar .profile {
+        padding-right: 0;
+    }
+    .sidebar .contact-toggle.corner {
+        top: 6px;
+        right: 6px;
+        left: auto;
+        width: 32px;
+        height: 32px;
+    }
+}

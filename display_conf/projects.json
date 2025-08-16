@@ -1,0 +1,17 @@
+[
+    {
+        "title": "Proyecto 1",
+        "thumbnail": "assets/projects/project1-thumb.jpg",
+        "content": "display_conf/projects_html/project1.html"
+    },
+    {
+        "title": "Proyecto 2",
+        "thumbnail": "assets/projects/project1-thumb.jpg",
+        "content": "display_conf/projects_html/project1.html"
+    },
+    {
+        "title": "Proyecto 3",
+        "thumbnail": "assets/projects/project3-thumb.jpg",
+        "content": "display_conf/projects_html/project1.html"
+    }
+]

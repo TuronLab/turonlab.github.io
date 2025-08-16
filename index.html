@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <title>Pablo Turon</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Left Column -->
+    <aside class="sidebar">
+      <div class="profile">
+        <img src="assets/figures/avatar.jpg" alt="Mi foto" class="profile-pic">
+        <h2>Tu Nombre</h2>
+        <p>Desarrollador Web</p>
+      </div>
+
+      <ul class="contact-info">
+        <hr class="sidebar-separator">
+        <li class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="contact-text">
+            <span class="contact-label">Email</span>
+            <a href="mailto:correo@ejemplo.com">correo@ejemplo.com</a>
+          </div>
+        </li>
+        <li class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <div class="contact-text">
+            <span class="contact-label">Teléfono</span>
+            <a href="tel:+34123456789">+34 123 456 789</a>
+          </div>
+        </li>
+        <li class="contact-item">
+          <div class="contact-icon">
+            <i class="fab fa-linkedin"></i>
+          </div>
+          <div class="contact-text">
+            <span class="contact-label">LinkedIn</span>
+            <a href="#" target="_blank" rel="noopener">Mi LinkedIn</a>
+          </div>
+        </li>
+        <li class="contact-item">
+          <div class="contact-icon">
+            <i class="fab fa-github"></i>
+          </div>
+          <div class="contact-text">
+            <span class="contact-label">GitHub</span>
+            <a href="#" target="_blank" rel="noopener">Mi GitHub</a>
+          </div>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Columna derecha -->
+    <main class="content">
+      <!-- Contenedor vacío: los botones se generarán aquí -->
+    <div class="tabs-container">
+      <button class="tabs-hamburger" aria-label="Abrir menú" aria-expanded="false">
+          ☰
+      </button>
+      <div class="tabs" role="tablist" aria-label="Pestañas principales"></div>
+    </div>
+
+
+      <!-- Contenedor vacío donde JS creará los div.tab-content -->
+      <!-- Nota: no debes añadir manualmente aquí divs con id igual a las pestañas, el JS los generará -->
+    </main>
+  </div>
+
+  <!-- About pop-up (se mantiene en el index porque es global) -->
+  <div class="popup about-popup" id="about-popup" aria-hidden="true">
+    <div class="popup-content" role="dialog" aria-modal="true" aria-labelledby="about-popup-title">
+      <span class="popup-close" role="button" aria-label="Cerrar">&times;</span>
+      <h2 id="about-popup-title"></h2>
+      <div id="about-popup-content"></div>
+      <div class="popup-navigation">
+        <button id="about-prev" aria-label="Anterior">&larr;</button>
+        <button id="about-next" aria-label="Siguiente">&rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Projects popup (global) -->
+  <div id="project-popup" class="popup" aria-hidden="true">
+    <div class="popup-content" role="dialog" aria-modal="true">
+      <span class="popup-close" role="button" aria-label="Cerrar">&times;</span>
+      <img id="popup-image" src="" alt="" />
+      <h2 id="popup-title"></h2>
+      <div id="popup-description"></div>
+      <div id="popup-audio-container"></div>
+    </div>
+  </div>
+
+  <!-- Scripts: carga el js dinámico que genera pestañas y maneja popups -->
+  <!-- Asegúrate de sustituir tu tabs.js por la versión dinámica que te pasé -->
+  <script src="tabs.js" defer></script>
+</body>
+</html>
