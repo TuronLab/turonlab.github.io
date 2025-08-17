@@ -126,12 +126,16 @@ img, video, iframe {
     color: #1abc9c;
     width: 25px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .contact-text {
     display: flex;
     flex-direction: column;
     text-align: left;
+    flex: 1;
 }
 
 .contact-label {
