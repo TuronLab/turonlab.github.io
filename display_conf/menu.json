@@ -20,9 +20,9 @@
       "id": "activities"
     },
     {
-      "name": "Contact",
-      "file": "./assets/specific_html_files/tabs/contact.html",
-      "id": "contact"
+      "name": "Education",
+      "file": "./assets/specific_html_files/tabs/education.html",
+      "id": "education"
     }
   ]
   
