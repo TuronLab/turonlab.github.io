@@ -1,0 +1,17 @@
+[
+    {
+        "title": "Activity 1",
+        "thumbnail": "assets/activities/activity1-thumb.jpg",
+        "content": "display_conf/activities_html/activity1.html"
+    },
+    {
+        "title": "Activity 2",
+        "thumbnail": "assets/activities/activity1-thumb.jpg",
+        "content": "display_conf/activities_html/activity1.html"
+    },
+    {
+        "title": "Activity 3",
+        "thumbnail": "assets/activities/activity3-thumb.jpg",
+        "content": "display_conf/activities_html/activity1.html"
+    }
+]

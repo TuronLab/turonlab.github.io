@@ -7,6 +7,7 @@
     const TABS_JSON = './display_conf/tabs.json';
     const ABOUT_JSON = './display_conf/about.json';
     const PROJECTS_JSON = './display_conf/projects.json';
+    const ACTIVITIES_JSON = './display_conf/activities.json';
 
     const tabsContainer = document.querySelector('.tabs');
     const contentContainer = document.querySelector('.content');
@@ -43,8 +44,15 @@
         }
     }
 
-    // --- Tab System Initialization ---
+    function stopAudios(container) {
+        const audios = container.querySelectorAll("audio");
+        audios.forEach(audio => {
+            audio.pause();
+            audio.currentTime = 0;
+        });
+    }
 
+    // --- Tab System Initialization ---
     let tabsConfig;
     try {
         const response = await fetch(TABS_JSON);
@@ -88,7 +96,7 @@
 
         const btn = tabsContainer.querySelector(`.tab-button[data-tab="${tabId}"]`);
         const file = btn && btn.dataset.file;
-
+        
         if (file) {
             const html = await fetchText(file);
             tabDiv.innerHTML = html || '<p>Error loading content.</p>';
@@ -96,12 +104,14 @@
             tabDiv.innerHTML = '<p>No associated file for this tab.</p>';
         }
         loadedTabs.add(tabId);
-
+        
         if (tabId === 'projects') {
-            initProjects(tabDiv).catch(err => console.error(err));
+            initCardsContainer(tabDiv, PROJECTS_JSON, '#projects-container', 'projects-grid');
+        } else if (tabId === 'activities') {
+            initCardsContainer(tabDiv, ACTIVITIES_JSON, '#activities-container', 'activities-grid');
         }
     }
-
+    
     // --- Centralized Hamburger Menu Logic ---
     function setupHamburgerMenu() {
         tabsContainerEl.addEventListener("click", () => {
@@ -109,7 +119,7 @@
             tabsHamburger.setAttribute("aria-expanded", !expanded);
             tabsContainer.classList.toggle("show");
         });
-
+        
         tabsContainer.addEventListener('click', (e) => {
             if (e.target.closest('.tab-button')) {
                 tabsHamburger.setAttribute("aria-expanded", "false");
@@ -132,10 +142,10 @@
     tabsContainer.addEventListener('click', async (e) => {
         const btn = e.target.closest('.tab-button');
         if (!btn) return;
-
+    
         tabsContainer.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
         contentContainer.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
-
+    
         btn.classList.add('active');
         const tabId = btn.dataset.tab;
         const target = document.getElementById(tabId);
@@ -144,29 +154,10 @@
             await loadTabContent(tabId);
             history.replaceState(null, '', `#${tabId}`);
         }
-
+        
         if (window.matchMedia('(max-width: 768px)').matches) {
             tabsContainer.classList.remove('show');
             tabsHamburger.setAttribute('aria-expanded', 'false');
-        }
-    });
-
-
-    // --- Tab Switching Logic (separate from hamburger) ---
-    tabsContainer.addEventListener('click', async (e) => {
-        const btn = e.target.closest('.tab-button');
-        if (!btn) return;
-
-        tabsContainer.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
-        contentContainer.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
-
-        btn.classList.add('active');
-        const tabId = btn.dataset.tab;
-        const target = document.getElementById(tabId);
-        if (target) {
-            target.style.display = 'block';
-            await loadTabContent(tabId);
-            history.replaceState(null, '', `#${tabId}`);
         }
     });
 
@@ -178,7 +169,6 @@
         if (btn) {
             btn.click();
         } else {
-            // If it's no valid option, it will default to the first tab
             const defaultBtn = tabsContainer.querySelector('.tab-button');
             if (defaultBtn) defaultBtn.click();
         }
@@ -294,70 +284,78 @@
         if (e.target === aboutPopup) aboutPopup.classList.remove('is-open');
     });
 
+    // --- General Popup for cards (Projects, Activities, etc.) ---
+    const generalPopup = document.getElementById('general-popup');
+    const popupTitle = generalPopup ? generalPopup.querySelector('#popup-title') : null;
+    const popupDescription = generalPopup ? generalPopup.querySelector('#popup-description') : null;
+    const popupClose = generalPopup ? generalPopup.querySelector('.popup-close') : null;
 
-    // --- Project Popup Logic ---
-    async function initProjects(tabDiv) {
-        let container = tabDiv.querySelector('#projects-container');
+    if (popupClose) {
+        popupClose.addEventListener('click', () => {
+            generalPopup.classList.remove('is-open');
+            stopAudios(generalPopup);
+        });
+    }
+    window.addEventListener('click', (e) => {
+        if (e.target === generalPopup) {
+            generalPopup.classList.remove('is-open');
+            stopAudios(generalPopup);
+        }
+    });
+
+    // --- Main function to initialize dynamic card content ---
+    async function initCardsContainer(tabDiv, jsonFile, containerId, className) {
+        let container = tabDiv.querySelector(containerId);
         if (!container) {
             container = document.createElement('div');
-            container.id = 'projects-container';
-            container.className = 'projects-grid';
+            container.id = containerId.replace('#', '');
+            container.className = className;
             tabDiv.appendChild(container);
         }
-
-        const projects = await fetchJson(PROJECTS_JSON);
-        if (!projects || !Array.isArray(projects)) {
-            container.innerHTML = '<p>No projects available.</p>';
-            return;
+        
+        let cardClass;
+        if (containerId === '#projects-container') {
+            cardClass = 'project-card';
+        } else if (containerId === '#activities-container') {
+            cardClass = 'activity-card';
         }
 
+        const items = await fetchJson(jsonFile);
+        if (!items || !Array.isArray(items)) {
+            container.innerHTML = '<p>No items available.</p>';
+            return;
+        }
+    
         container.innerHTML = '';
-        projects.forEach(proj => {
+        items.forEach(item => {
             const card = document.createElement('div');
-            card.className = 'project-card';
+            card.className = cardClass;
             card.tabIndex = 0;
-            card.dataset.title = proj.title || '';
-            card.dataset.content = proj.content || '';
+            card.dataset.title = item.title || '';
+            card.dataset.content = item.content || '';
+            card.dataset.thumbnail = item.thumbnail || '';
             card.innerHTML = `
-              ${proj.thumbnail ? `<img src="${proj.thumbnail}" alt="${proj.title}">` : ''}
-              <h3>${proj.title || 'Untitled'}</h3>
-          `;
+                ${item.thumbnail ? `<img src="${item.thumbnail}" alt="${item.title}">` : ''}
+                <h3>${item.title || 'Untitled'}</h3>
+            `;
             container.appendChild(card);
         });
-
-        const popup = document.getElementById('project-popup');
-        if (!popup) {
-            console.warn('#project-popup not found in index.html');
-            return;
-        }
-        const popupImage = popup.querySelector('#popup-image');
-        const popupTitle = popup.querySelector('#popup-title');
-        const popupDescription = popup.querySelector('#popup-description');
-        const popupClose = popup.querySelector('.popup-close');
-
-        container.querySelectorAll('.project-card').forEach(card => {
+    
+        container.querySelectorAll(`.${cardClass}`).forEach(card => {
             card.addEventListener('click', async () => {
                 const title = card.dataset.title || '';
                 const contentPath = card.dataset.content || '';
-                const thumbnail = card.dataset.thumbnail || '';
-
+    
                 if (popupTitle) popupTitle.textContent = title;
-                if (popupImage && thumbnail) {
-                    popupImage.src = thumbnail;
-                    popupImage.alt = title;
-                    popupImage.style.display = '';
-                } else if (popupImage) {
-                    popupImage.style.display = 'none';
-                }
                 if (contentPath && isPathLike(contentPath)) {
                     const html = await fetchText(contentPath);
                     if (popupDescription) popupDescription.innerHTML = html || '<p>Error loading content.</p>';
                 } else {
                     if (popupDescription) popupDescription.textContent = contentPath || 'No description.';
                 }
-                if (popup) popup.classList.add('is-open');
+                if (generalPopup) generalPopup.classList.add('is-open');
             });
-
+    
             card.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
@@ -365,28 +363,6 @@
                 }
             });
         });
-
-        if (popupClose) {
-            popupClose.addEventListener('click', () => {
-                popup.classList.remove('is-open');
-                stopAudios(popup);
-            });
-        }
-        window.addEventListener('click', (e) => {
-            if (e.target === popup) {
-                popup.classList.remove('is-open');
-                stopAudios(popup);
-            }
-        });
-
-        function stopAudios(container) {
-            const audios = container.querySelectorAll("audio");
-            audios.forEach(audio => {
-                audio.pause();
-                audio.currentTime = 0;
-            });
-        }
-
     }
 
     // --- Contact Toggle Logic ---
@@ -395,10 +371,10 @@
         const profile = sidebar?.querySelector('.profile');
         const contact = sidebar?.querySelector('.contact-info');
         if (!profile || !contact) return;
-
+    
         if (!contact.id) contact.id = 'contact-info';
         if (profile.querySelector('.contact-toggle.corner')) return;
-
+    
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'contact-toggle corner';
@@ -407,7 +383,7 @@
         btn.setAttribute('aria-label', 'Show contact');
         btn.innerHTML = '<span class="arrow" aria-hidden="true">▾</span>';
         profile.appendChild(btn);
-
+    
         const setInitialState = () => {
             if (window.matchMedia('(max-width: 768px)').matches) {
                 contact.classList.add('collapsed');
@@ -419,20 +395,20 @@
                 btn.setAttribute('aria-label', 'Hide contact');
             }
         };
-
+    
         btn.addEventListener('click', () => {
             const expanded = btn.getAttribute('aria-expanded') === 'true';
             contact.classList.toggle('collapsed');
             btn.setAttribute('aria-expanded', !expanded);
             btn.setAttribute('aria-label', expanded ? 'Show contact' : 'Hide contact');
         });
-
+    
         let resizeTimer;
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(setInitialState, 120);
         });
-
+    
         setInitialState();
     };
 

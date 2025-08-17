@@ -266,7 +266,33 @@ img, video, iframe {
     transform: translateY(-5px);
 }
 
-/* --- 3.4 Popups --- */
+/* --- 3.4 Activities --- */
+.activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+.activity-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.activity-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.activity-card:hover {
+    transform: translateY(-5px);
+}
+
+/* --- 3.5 Popups --- */
 /* Basic rules for both popups */
 .popup {
     position: fixed;
@@ -309,8 +335,8 @@ img, video, iframe {
     color: #333;
 }
 
-/* Specific styles for the project popup */
-.project-popup .popup-content {
+/* Specific styles for the general popup */
+.general-popup .popup-content {
     width: min(90vw, 500px);
     max-height: 85vh;
     overflow: auto;

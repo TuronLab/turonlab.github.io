@@ -5,9 +5,9 @@
       "id": "about"
     },
     {
-      "name": "Resume",
-      "file": "./display_conf/tabs_html/resume.html",
-      "id": "resume"
+      "name": "Skills",
+      "file": "./display_conf/tabs_html/skills.html",
+      "id": "skills"
     },
     {
       "name": "Projects",
@@ -15,9 +15,9 @@
       "id": "projects"
     },
     {
-      "name": "Hobbies",
-      "file": "./display_conf/tabs_html/hobbies.html",
-      "id": "hobbies"
+      "name": "Activities",
+      "file": "./display_conf/tabs_html/activities.html",
+      "id": "activities"
     },
     {
       "name": "Contact",
