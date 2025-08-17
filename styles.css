@@ -356,10 +356,50 @@ img, video, iframe {
 /* =======================================
    === 4. Media Queries ===
    ======================================= */
-/* Rules for mobile devices. In this approach, the base styles are for desktop and are overwritten for mobile. */
 
 /* ------------------------------------------------------------------
-   === Styles for screens <= 768px (Mobile) ===
+   === Estilos para pantallas <= 992px (Menú de navegación) ===
+   ------------------------------------------------------------------ */
+@media (max-width: 1100px) {
+    /* Menú de pestañas */
+    .tabs-container {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .tabs-hamburger {
+        display: flex; /* Muestra el botón de hamburguesa */
+        position: static;
+        margin: 4px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .tabs {
+        display: none; /* Oculta el menú normal */
+        flex-direction: column;
+        width: 200px;
+        margin-top: 4px;
+        padding: 4px 0;
+        background-color: #34495e;
+        border-radius: 6px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    
+    .tabs.show {
+        display: flex;
+    }
+
+    .tab-button {
+        width: 100%;
+        text-align: left;
+        border-radius: 0;
+        padding: 8px 12px;
+    }
+}
+
+/* ------------------------------------------------------------------
+   === Estilos para pantallas <= 768px (Barra lateral de contacto) ===
    ------------------------------------------------------------------ */
 @media (max-width: 768px) {
     /* Layout */
@@ -380,7 +420,7 @@ img, video, iframe {
         padding: 40px;
     }
 
-    /* Profile */
+    /* Perfil */
     .sidebar .profile {
         display: flex;
         flex-direction: column;
@@ -412,7 +452,7 @@ img, video, iframe {
         border-bottom: none;
     }
 
-    /* Toggle button and contact list */
+    /* Botón de alternancia y lista de contactos */
     .sidebar .contact-toggle.corner {
         display: inline-flex;
         top: 8px;
@@ -451,46 +491,10 @@ img, video, iframe {
         text-align: left;
         max-width: 170px;
     }
-    
-    /* Tab navigation */
-    .tabs-container {
-        flex-direction: column;
-        align-items: flex-end;
-    }
-
-    .tabs-hamburger {
-        display: flex;
-        position: static;
-        margin: 4px;
-        width: 40px;
-        height: 40px;
-    }
-
-    .tabs {
-        display: none;
-        flex-direction: column;
-        width: 200px;
-        margin-top: 4px;
-        padding: 4px 0;
-        background-color: #34495e;
-        border-radius: 6px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-    
-    .tabs.show {
-        display: flex;
-    }
-
-    .tab-button {
-        width: 100%;
-        text-align: left;
-        border-radius: 0;
-        padding: 8px 12px;
-    }
 }
 
 /* ------------------------------------------------------------------
-   === Styles for very narrow screens (<= 420px) ===
+   === Estilos para pantallas muy estrechas (<= 420px) ===
    ------------------------------------------------------------------ */
 @media (max-width: 420px) {
     .sidebar .profile {
