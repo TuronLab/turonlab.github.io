@@ -1,0 +1,28 @@
+[
+    {
+      "name": "About",
+      "file": "./assets/specific_html_files/tabs/about.html",
+      "id": "about"
+    },
+    {
+      "name": "Skills",
+      "file": "./assets/specific_html_files/tabs/skills.html",
+      "id": "skills"
+    },
+    {
+      "name": "Projects",
+      "file": "./assets/specific_html_files/tabs/projects.html",
+      "id": "projects"
+    },
+    {
+      "name": "Activities",
+      "file": "./assets/specific_html_files/tabs/activities.html",
+      "id": "activities"
+    },
+    {
+      "name": "Contact",
+      "file": "./assets/specific_html_files/tabs/contact.html",
+      "id": "contact"
+    }
+  ]
+  

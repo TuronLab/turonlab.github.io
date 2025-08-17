@@ -3,9 +3,9 @@
       "id": "story",
       "title": "Mi Historia",
       "pages": [
-        "display_conf/about_pages/page1.html",
-        "display_conf/about_pages/page2.html",
-        "display_conf/about_pages/page3.html"
+        "./assets/specific_html_files/about_popup_pages/page1.html",
+        "./assets/specific_html_files/about_popup_pages/page2.html",
+        "./assets/specific_html_files/about_popup_pages/page3.html"
       ]
     }
   ]

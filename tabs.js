@@ -4,7 +4,7 @@
  */
 (async () => {
     // --- Constants and DOM elements ---
-    const TABS_JSON = './display_conf/tabs.json';
+    const TABS_JSON = './display_conf/menu.json';
     const ABOUT_JSON = './display_conf/about.json';
     const PROJECTS_JSON = './display_conf/projects.json';
     const ACTIVITIES_JSON = './display_conf/activities.json';
@@ -58,10 +58,10 @@
         const response = await fetch(TABS_JSON);
         if (!response.ok) throw new Error(`Failed to load ${TABS_JSON}: ${response.status}`);
         tabsConfig = await response.json();
-        if (!Array.isArray(tabsConfig)) throw new Error('tabs.json must be an array.');
+        if (!Array.isArray(tabsConfig)) throw new Error('menu.json must be an array.');
     } catch (err) {
         console.error(err);
-        tabsContainer.innerHTML = '<div class="tab-error">Failed to load tabs configuration.</div>';
+        tabsContainer.innerHTML = '<div class="tab-error">Failed to load menu configuration.</div>';
         return;
     }
 
