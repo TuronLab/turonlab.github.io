@@ -1,1 +1,81 @@
-<p>Hola, esta es la primera página de mi historia.</p>
+<style>
+  .content {
+    display: flex;
+    align-items: center;   /* vertical align */
+    gap: 10px;
+    flex-wrap: nowrap;     /* don’t wrap mid-widths */
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .content p {
+    flex: 1 1 auto;        /* text grows and shrinks */
+    margin: 0;
+    line-height: 1.4;
+    min-width: 0;          /* important: allows text to shrink without forcing wrap */
+  }
+
+  .content img {
+    flex: 0 0 auto;        /* fixed basis, doesn’t push text below */
+    width: 20%;
+    max-width: 300px;      /* desktop size */
+    height: auto;
+    display: block;
+    border: none;
+    box-shadow: none;
+  }
+  
+  .inline-photo {
+    display: block;
+    margin: 15px auto;   /* separates + centers */
+    max-width: 90%;      /* optional: control size */
+    height: auto;
+  }
+
+
+  /* Small screens: stack */
+  @media (max-width: 600px) {
+    .content {
+      flex-direction: column;
+      align-items: center;
+      flex-wrap: wrap;     /* allow wrap when stacked */
+      gap: 15px;
+    }
+
+    .content img {
+      max-width: 100%;
+      width: 50%;
+    }
+  }
+</style>
+
+
+<h2>Sports material customization</h2>
+
+<div class="content">
+  <p>
+    During my studies, I wanted to enhance my performance as a
+    <a href="https://en.wikipedia.org/wiki/Biathlon" target="_blank">biathlete</a>, a sport
+    that combines cross-country skiing with precision shooting. In this discipline, having a rifle
+    fully adapted to your body is essential—every millimeter matters. This, combined with the
+    emergence of the first DIY 3D printers, lead me and some friends to build our "low-cost" 3D
+    printer built with hardware-store pieces to start building my initial personalized pieces for 
+    my rifle.
+  </p>
+
+  <img src="../../assets/figures/3d-printer.jpeg" alt="3d-printer">
+
+</div>
+
+<p>
+    That 3D printer enabled me to produce my early prototypes and inspired me to sharpen my 3D
+    design skills. Over time, I developed custom-made components for my rifle, which helped me
+    become one of the top shooters on the Spanish biathlon team. Some of these designs involved
+    using 3D scans of molds taken from my own body. Remarkably, three years after I created these
+    parts, I started seeing similar designs appear at the Biathlon World Cup.
+  
+  <img class="inline-photo" src="../../assets/figures/carabine.PNG" alt="carabina">
+</p>

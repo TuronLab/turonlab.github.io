@@ -182,7 +182,7 @@
     })();
 
     const aboutPopup = document.getElementById('about-popup');
-    const aboutTitleEl = aboutPopup ? aboutPopup.querySelector('#about-popup-title') : null;
+    //const aboutTitleEl = aboutPopup ? aboutPopup.querySelector('#about-popup-title') : null;
     const aboutContentEl = aboutPopup ? aboutPopup.querySelector('#about-popup-content') : null;
     const aboutPrevBtn = aboutPopup ? document.getElementById('about-prev') : null;
     const aboutNextBtn = aboutPopup ? document.getElementById('about-next') : null;
@@ -224,7 +224,7 @@
         e.preventDefault();
 
         const title = link.dataset.title || link.getAttribute('title') || 'About';
-        if (aboutTitleEl) aboutTitleEl.textContent = title;
+        //if (aboutTitleEl) aboutTitleEl.textContent = title;
 
         aboutPages = [];
         aboutCurrent = 0;
