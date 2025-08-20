@@ -114,12 +114,14 @@
     
     // --- Centralized Hamburger Menu Logic ---
     function setupHamburgerMenu() {
-        tabsContainerEl.addEventListener("click", () => {
+        // Toggle only when hamburger is clicked
+        tabsHamburger.addEventListener("click", () => {
             const expanded = tabsHamburger.getAttribute("aria-expanded") === "true";
-            tabsHamburger.setAttribute("aria-expanded", !expanded);
-            tabsContainer.classList.toggle("show");
+            tabsHamburger.setAttribute("aria-expanded", String(!expanded));
+            tabsContainer.classList.toggle("show", !expanded);
         });
         
+        // Close when a tab button is clicked
         tabsContainer.addEventListener('click', (e) => {
             if (e.target.closest('.tab-button')) {
                 tabsHamburger.setAttribute("aria-expanded", "false");
@@ -127,13 +129,18 @@
             }
         });
 
+        // Close when clicking outside
         document.addEventListener('click', (e) => {
-            const isClickInsideMenu = tabsContainerEl.contains(e.target) || tabsHamburger.contains(e.target);
+            const isClickInsideMenu = tabsContainer.contains(e.target) || tabsHamburger.contains(e.target);
             if (!isClickInsideMenu && tabsContainer.classList.contains('show')) {
                 tabsHamburger.setAttribute("aria-expanded", "false");
                 tabsContainer.classList.remove("show");
             }
         });
+
+        // Ensure starting state is closed
+        tabsHamburger.setAttribute("aria-expanded", "false");
+        tabsContainer.classList.remove("show");
     }
 
     setupHamburgerMenu();
@@ -155,7 +162,7 @@
             history.replaceState(null, '', `#${tabId}`);
         }
         
-        if (window.matchMedia('(max-width: 768px)').matches) {
+        if (window.matchMedia('(max-width: 1100px)').matches) {
             tabsContainer.classList.remove('show');
             tabsHamburger.setAttribute('aria-expanded', 'false');
         }

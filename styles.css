@@ -368,7 +368,7 @@ img, video, iframe {
     }
 
     .tabs-hamburger {
-        display: flex; /* Muestra el botón de hamburguesa */
+        display: flex;
         position: static;
         margin: 4px;
         width: 40px;
