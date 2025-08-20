@@ -223,7 +223,7 @@
         if (!link) return;
         e.preventDefault();
 
-        //const title = link.dataset.title || link.getAttribute('title') || 'About';
+        const title = link.dataset.title || link.getAttribute('title') || 'About';
         //if (aboutTitleEl) aboutTitleEl.textContent = title;
 
         aboutPages = [];
