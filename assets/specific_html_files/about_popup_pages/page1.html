@@ -1,5 +1,5 @@
 <style>
-  .content {
+  .about-content {
     display: flex;
     align-items: center;   /* vertical align */
     gap: 10px;
@@ -11,14 +11,14 @@
     margin: 0;
   }
 
-  .content p {
+  .about-content p {
     flex: 1 1 auto;        /* text grows and shrinks */
     margin: 0;
     line-height: 1.4;
     min-width: 0;          /* important: allows text to shrink without forcing wrap */
   }
 
-  .content img {
+  .about-content img {
     flex: 0 0 auto;        /* fixed basis, doesn’t push text below */
     width: 20%;
     max-width: 300px;      /* desktop size */
@@ -38,14 +38,14 @@
 
   /* Small screens: stack */
   @media (max-width: 600px) {
-    .content {
+    .about-content {
       flex-direction: column;
       align-items: center;
       flex-wrap: wrap;     /* allow wrap when stacked */
       gap: 15px;
     }
 
-    .content img {
+    .about-content img {
       max-width: 100%;
       width: 50%;
     }
@@ -55,7 +55,7 @@
 
 <h2>Sports material customization</h2>
 
-<div class="content">
+<div class="about-content">
   <p>
     During my studies, I wanted to enhance my performance as a
     <a href="https://en.wikipedia.org/wiki/Biathlon" target="_blank">biathlete</a>, a sport
