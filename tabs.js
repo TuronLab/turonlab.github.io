@@ -332,9 +332,18 @@
             container.innerHTML = '<p>No items available.</p>';
             return;
         }
-    
+
         container.innerHTML = '';
         items.forEach(item => {
+            // I added this check to prevent errors if a thumbnail is missing
+            if (!item.thumbnail) {
+                return; // Skip if no thumbnail is provided
+            }
+            
+            // This line was updated to default to 'fit-to-width'
+            // unless the property is explicitly set to false.
+            const imageClass = item.fitToWidth !== false ? 'fit-to-width' : '';
+
             const card = document.createElement('div');
             card.className = cardClass;
             card.tabIndex = 0;
@@ -342,17 +351,18 @@
             card.dataset.content = item.content || '';
             card.dataset.thumbnail = item.thumbnail || '';
             card.innerHTML = `
-                ${item.thumbnail ? `<img src="${item.thumbnail}" alt="${item.title}">` : ''}
+                <!-- I updated this line to include the new class -->
+                <img src="${item.thumbnail}" alt="${item.title}" class="${imageClass}">
                 <h3>${item.title || 'Untitled'}</h3>
             `;
             container.appendChild(card);
         });
-    
+
         container.querySelectorAll(`.${cardClass}`).forEach(card => {
             card.addEventListener('click', async () => {
                 const title = card.dataset.title || '';
                 const contentPath = card.dataset.content || '';
-    
+
                 if (popupTitle) popupTitle.textContent = title;
                 if (contentPath && isPathLike(contentPath)) {
                     const html = await fetchText(contentPath);
@@ -362,7 +372,7 @@
                 }
                 if (generalPopup) generalPopup.classList.add('is-open');
             });
-    
+
             card.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
@@ -371,6 +381,7 @@
             });
         });
     }
+
 
     // --- Contact Toggle Logic ---
     const initContactToggleCorner = () => {

@@ -261,9 +261,16 @@ img, video, iframe {
     transition: transform 0.2s ease;
 }
 
+/* Default image style with 'contain' */
 .project-card img {
     width: 100%;
     height: 150px;
+    object-fit: contain;
+    object-position: center;
+}
+
+/* New class to make the image fit the width */
+.project-card img.fit-to-width {
     object-fit: cover;
 }
 
