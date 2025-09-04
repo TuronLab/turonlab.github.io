@@ -1,17 +1,29 @@
 [
     {
-        "title": "Proyecto 1",
-        "thumbnail": "assets/projects/project1-thumb.jpg",
-        "content": "assets/specific_html_files/projects/project1.html"
+        "title": "Early Detection of Mental Disorders",
+        "thumbnail": "assets/projects/mental_disorders/mental_disorders.PNG",
+        "content": "assets/projects/mental_disorders/project.html"
     },
     {
-        "title": "Proyecto 2",
-        "thumbnail": "assets/projects/project1-thumb.jpg",
-        "content": "assets/specific_html_files/projects/project1.html"
+        "title": "Violence incident detection on Social Media",
+        "thumbnail": "assets/projects/viol_sm/violent_incident.png",
+        "content": "assets/projects/viol_sm/project.html"
     },
     {
-        "title": "Proyecto 3",
-        "thumbnail": "assets/projects/project3-thumb.jpg",
-        "content": "assets/specific_html_files/projects/project1.html"
+        "title": "NLP and Speech Pipelines for Enterprise Automation",
+        "thumbnail": "assets/projects/emphasis/emphasis.png",
+        "content": "assets/projects/emphasis/project.html",
+        "fitToWidth": false
+    },
+    {
+        "title": "Email Classification: Classical vs Modern AI",
+        "thumbnail": "assets/projects/email_clf/EmailClassification.png",
+        "content": "assets/projects/email_clf/project.html"
+    },
+    {
+        "title": "European Identity Theft Observatory System",
+        "thumbnail": "assets/projects/eithos/eithos.jpg",
+        "content": "assets/projects/eithos/project.html",
+        "fitToWidth": false
     }
 ]

@@ -1,0 +1,60 @@
+<!-- Meta info row -->
+<div style="display: flex; flex-wrap: wrap; margin-bottom: 1rem; align-items: center;">
+  <!-- Published date -->
+  <p style="color: grey; padding: 0rem 1rem; margin: 0;">
+    <i>Published on February 19, 2024</i>
+  </p>
+
+  <!-- TL;DR centered -->
+  <div style="display: flex; justify-content: center; width: 100%; margin-top: 5px;">
+    <div style="display: flex; align-items: center; gap: 1rem; background-color: #f0f0f0ec; padding: 0.5rem 1rem; border-radius: 15px;">
+      <!-- TL;DR text -->
+      <div style="display: flex; flex-direction: column; font-style: italic; gap: 0.25rem; color: grey; font-size: 0.9em;">
+        <span>TL;DR</span>
+        <span>AI-generated audio summary</span>
+      </div>
+
+      <!-- Audio player -->
+      <audio controls style="height: 28px; border: 1px solid #ccc; border-radius: 4px;">
+        <source src="../assets/projects/email_clf/email_clf.m4a" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Content -->
+<p>
+  This project dives into the challenge of automatically classifying business emails 
+  into five categories: <strong>Administrative, Commercial, Issues, Operations, and 
+  Collections</strong>. I compared traditional statistical methods with modern large 
+  language models (LLMs) and ChatGPT prompting techniques to see which approach handles 
+  real-world email data best.
+</p>
+
+<p>
+  Using a dataset of anonymized email conversations, I designed multiple pre-processing 
+  strategies to clean noisy elements like repeated characters, reply headers, privacy 
+  disclaimers, and URLs. Then I tested three main types of models:
+</p>
+
+<ul>
+  <li><strong>SVM + TF-IDF:</strong> classic baseline;</li>
+  <li><strong>BERT and BLOOM:</strong> fine-tuned LLMs;</li>
+  <li><strong>ChatGPT zero-shot:</strong> with carefully crafted prompts.</li>
+</ul>
+<p>
+  The experiments showed that traditional approaches can still outperform modern LLMs on 
+  noisy, domain-specific email data. In particular, <strong>SVM with TF-IDF achieved the 
+  highest overall performance</strong>, reaching an F1 score above 0.85. LLMs like BERT 
+  and BLOOM, while powerful, struggled with the unstructured data, and ChatGPT performed 
+  respectably in a zero-shot setup with a 0.71 F1 score.
+</p>
+
+<p>
+  These results highlight that traditional models remain competitive for real-world 
+  classification tasks, particularly when data is messy or unstructured. While SVMs 
+  handle noise naturally, LLMs and ChatGPT benefit considerably from careful pre-processing.
+</p>

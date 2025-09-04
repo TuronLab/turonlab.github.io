@@ -330,7 +330,7 @@ img, video, iframe {
     max-width: 600px;
     width: 90%;
     margin: 20px;
-    text-align: center;
+    text-align: justify;
     position: relative;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     animation: popupExpand 0.5s ease forwards;
