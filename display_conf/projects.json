@@ -28,8 +28,17 @@
     },
     {
         "title": "Perplexity, Uncertainty, and the Limits of Active Learning",
-        "thumbnail": "assets/projects/eithos/eithos.jpg",
-        "content": "assets/projects/eithos/project.html",
+        "thumbnail": "assets/projects/al/temporal_thumbnail.png",
+        "comingSoon": true
+    },
+    {
+        "title": "Impact of Multimodal LLMs for Document Understanding",
+        "thumbnail": "assets/projects/doc_under/temporal_thumbnail.png",
+        "comingSoon": true
+    },
+    {
+        "title": "TTS Enhancement Using NLP Pitch Estimation",
+        "thumbnail": "assets/projects/tts/temporal_thumbnail.png",
         "comingSoon": true
     }
 
