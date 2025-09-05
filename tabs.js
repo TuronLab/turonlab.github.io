@@ -335,41 +335,55 @@
 
         container.innerHTML = '';
         items.forEach(item => {
-            // I added this check to prevent errors if a thumbnail is missing
-            if (!item.thumbnail) {
-                return; // Skip if no thumbnail is provided
-            }
-            
-            // This line was updated to default to 'fit-to-width'
-            // unless the property is explicitly set to false.
-            const imageClass = item.fitToWidth !== false ? 'fit-to-width' : '';
+            if (!item.thumbnail) return;
 
+            const imageClass = item.fitToWidth !== false ? 'fit-to-width' : '';
             const card = document.createElement('div');
             card.className = cardClass;
             card.tabIndex = 0;
             card.dataset.title = item.title || '';
             card.dataset.content = item.content || '';
             card.dataset.thumbnail = item.thumbnail || '';
+
+            // Set relative positioning for overlay
+            card.style.position = 'relative';
+
+            // Inner HTML: image and title
             card.innerHTML = `
-                <!-- I updated this line to include the new class -->
                 <img src="${item.thumbnail}" alt="${item.title}" class="${imageClass}">
                 <h3>${item.title || 'Untitled'}</h3>
             `;
+
+            // If it's a coming soon card, add ribbon overlay
+            if (item.comingSoon) {
+                card.classList.add('coming-soon');
+
+                const ribbon = document.createElement('div');
+                ribbon.className = 'coming-soon-label';
+                ribbon.textContent = 'Coming soon';
+                card.appendChild(ribbon);
+            }
+
             container.appendChild(card);
         });
 
+        // Add click and keyboard listeners
         container.querySelectorAll(`.${cardClass}`).forEach(card => {
             card.addEventListener('click', async () => {
+                if (card.classList.contains('coming-soon')) return; // Do nothing
+
                 const title = card.dataset.title || '';
                 const contentPath = card.dataset.content || '';
 
                 if (popupTitle) popupTitle.textContent = title;
+
                 if (contentPath && isPathLike(contentPath)) {
                     const html = await fetchText(contentPath);
                     if (popupDescription) popupDescription.innerHTML = html || '<p>Error loading content.</p>';
                 } else {
                     if (popupDescription) popupDescription.textContent = contentPath || 'No description.';
                 }
+
                 if (generalPopup) generalPopup.classList.add('is-open');
             });
 
@@ -381,6 +395,7 @@
             });
         });
     }
+
 
 
     // --- Contact Toggle Logic ---
