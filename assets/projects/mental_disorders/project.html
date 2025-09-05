@@ -1,13 +1,93 @@
+<!-- Meta info row -->
+<div style="display: flex; flex-wrap: wrap; margin-bottom: 1rem; align-items: center;">
+  <!-- Published date -->
+  <p style="color: grey; padding: 0rem 1rem; margin: 0;">
+    <i>Published on September 26, 2023 <a href="https://ceur-ws.org/Vol-3496/mentalriskes-paper6.pdf" target="_blank">[Paper]</a></i> 
+  </p>
+
+  <!-- TL;DR centered -->
+  <div style="display: flex; justify-content: center; width: 100%; margin-top: 5px;">
+    <div style="display: flex; align-items: center; gap: 1rem; background-color: #f0f0f0ec; padding: 0.5rem 1rem; border-radius: 15px;">
+      <!-- TL;DR text -->
+      <div style="display: flex; flex-direction: column; font-style: italic; gap: 0.25rem; color: grey; font-size: 0.9em;">
+        <span>TL;DR</span>
+        <span>AI-generated audio summary</span>
+      </div>
+
+      <!-- Audio player -->
+      <audio controls style="height: 28px; border: 1px solid #ccc; border-radius: 4px;">
+        <source src="../assets/projects/mental_disorders/mental_disorders_summary.m4a" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  </div>
+</div>
+
+
+<!-- Content -->
 <p>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent mi orci, aliquam sit amet ex ac, egestas bibendum arcu. Sed iaculis diam nisl, eget ullamcorper sem pulvinar sit amet. Donec mi nulla, rhoncus id tempor eget, ultrices eget sapien. Nulla ac dignissim elit. Integer convallis felis vitae blandit ullamcorper. Donec viverra augue a risus tincidunt vestibulum. Mauris auctor sit amet tellus eget pretium. Nam sodales sagittis turpis. Donec a dolor quis ex luctus dictum ullamcorper ac sapien. Donec libero mi, fermentum in lorem quis, placerat rutrum nisi. Proin a est justo.
-  
-  Fusce vel nisi ut libero sagittis ullamcorper. Donec dapibus eros dolor, eget iaculis tellus consectetur non. Sed cursus, sapien ac ultrices luctus, ex justo dictum nibh, sit amet interdum quam dolor ac turpis. Morbi interdum velit ornare erat tincidunt tristique. Praesent finibus quis eros quis semper. Proin quis dignissim turpis. Aenean iaculis fermentum viverra. Donec tempus eget nisl blandit semper. Pellentesque pulvinar enim tincidunt consequat vehicula. Nunc et lorem leo.
-  
-  Nullam euismod nibh vel nunc consectetur hendrerit. Nam tempus, tortor porta laoreet fermentum, metus justo porttitor neque, in cursus elit purus et enim. In hac habitasse platea dictumst. In elementum enim vitae arcu fringilla, et aliquet odio venenatis. Fusce.
+This project was developed as part of the <strong>MentalRiskES shared task (IberLEF 2023)</strong>, 
+which focused on the early detection of mental health risks from Spanish-language 
+Telegram messages. Unlike most prior research that concentrated on English, our 
+work addressed the lack of resources for Spanish, building tools to recognize 
+signals of <strong>eating disorders</strong> and <strong>depression</strong> as early as possible.
 </p>
-<img src="../../assets/figures/avatar.jpg" alt="Proyecto 1">
-<p>Algunas explicaciones más...</p>
-<audio controls>
-  <source src="../../assets/projects/email_clf/email_clf.m4a" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
+
+<p>
+Our approach introduced a <strong>two-phase strategy</strong>:
+</p>
+
+<ul>
+  <li>
+    <strong>Message-level annotation</strong> – although the data was labeled at the conversation 
+    (stream) level, we developed a method to automatically assign labels to individual 
+    messages. This was based on measuring how much each message influenced the model's 
+    confidence (<strong>Average Confidence Δ</strong>).
+  </li>
+  <li>
+    <strong>Early risk detection</strong> – using this refined dataset, we trained lightweight 
+    Transformer-based classifiers 
+    (<a href="https://dataloop.ai/library/model/somosnlp-hackathon-2023_diagtrast-berto/"><strong>DiagTrast-Berto</strong></a>) 
+    capable of predicting disorders from partial message sequences, simulating real-time monitoring.
+  </li>
+</ul>
+
+<figure style="text-align: center; margin: 2em 0;">
+  <img src="../assets/projects/mental_disorders/methodology.png" alt="Methodology overview" style="width: 80%; height: auto;">
+  <figcaption style="font-size: 0.9em; color: #555; margin-top: 0.5em;">
+    Methodology overview. Our process consisted of two phases: first, automatic message-level
+    annotation of the training and development data; second, training models for early risk detection.
+    More details can be found in the 
+    <a href="https://ceur-ws.org/Vol-3496/mentalriskes-paper6.pdf" target="_blank">article</a>.
+  </figcaption>
+</figure>
+
+<p>
+This methodology allowed our system to focus on the most relevant signals while 
+keeping computational and environmental costs low.
+</p>
+
+<ul>
+  <li>
+    Achieved the <strong>best official ERDE5 score</strong>
+    <sup id="fnref1" style="font-size:0.8em; vertical-align:super; margin-left:0;">
+      <a href="#fn1" style="text-decoration:none; color:#555;">1</a></sup>
+    (0.27) for <strong>depression detection</strong> and the <strong>second-best 
+    (0.17) for eating disorders</strong> among all participants.
+  </li>
+  <li>
+    Significantly outperformed standard baselines, improving F1-score by up to 15 points 
+    using our message-level preprocessing strategy.
+  </li>
+  <li>
+    Built <strong>one of the fastest and most resource-efficient systems in the 
+    challenge</strong>, achieving strong accuracy with minimal carbon footprint.
+  </li>
+</ul>
+
+<div style="font-size: 0.85em; color: #555; border-top: 1px solid #ddd; margin-top: 2em; padding-top: 1em;">
+  <p id="fn1" style="margin: 0.5em 0;">
+    1. ERDE5 (Early Risk Detection Error at threshold 5) is a metric that measures prediction accuracy while 
+    penalizing early or late risk detection within 5% of the ideal prediction time.
+  </p>
+</div>
