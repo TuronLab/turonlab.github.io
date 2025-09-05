@@ -1,13 +1,69 @@
+<!-- Meta info row -->
+<div style="display: flex; flex-wrap: wrap; margin-bottom: 1rem; align-items: center;">
+  <!-- Published date -->
+  <p style="color: grey; padding: 0rem 1rem; margin: 0;">
+    <i>Published on June 19, 2024 <a href="https://ceur-ws.org/Vol-3729/p18_rev.pdf" target="_blank">[Paper]</a></i> 
+  </p>
+
+  <!-- TL;DR centered -->
+  <div style="display: flex; justify-content: center; width: 100%; margin-top: 5px;">
+    <div style="display: flex; align-items: center; gap: 1rem; background-color: #f0f0f0ec; padding: 0.5rem 1rem; border-radius: 15px;">
+      <!-- TL;DR text -->
+      <div style="display: flex; flex-direction: column; font-style: italic; gap: 0.25rem; color: grey; font-size: 0.9em;">
+        <span>TL;DR</span>
+        <span>AI-generated audio summary</span>
+      </div>
+
+      <!-- Audio player -->
+      <audio controls style="height: 28px; border: 1px solid #ccc; border-radius: 4px;">
+        <source src="../assets/projects/emphasis/emphasis_summary.m4a" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  </div>
+</div>
+
+
+<!-- Content -->
 <p>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent mi orci, aliquam sit amet ex ac, egestas bibendum arcu. Sed iaculis diam nisl, eget ullamcorper sem pulvinar sit amet. Donec mi nulla, rhoncus id tempor eget, ultrices eget sapien. Nulla ac dignissim elit. Integer convallis felis vitae blandit ullamcorper. Donec viverra augue a risus tincidunt vestibulum. Mauris auctor sit amet tellus eget pretium. Nam sodales sagittis turpis. Donec a dolor quis ex luctus dictum ullamcorper ac sapien. Donec libero mi, fermentum in lorem quis, placerat rutrum nisi. Proin a est justo.
-  
-  Fusce vel nisi ut libero sagittis ullamcorper. Donec dapibus eros dolor, eget iaculis tellus consectetur non. Sed cursus, sapien ac ultrices luctus, ex justo dictum nibh, sit amet interdum quam dolor ac turpis. Morbi interdum velit ornare erat tincidunt tristique. Praesent finibus quis eros quis semper. Proin quis dignissim turpis. Aenean iaculis fermentum viverra. Donec tempus eget nisl blandit semper. Pellentesque pulvinar enim tincidunt consequat vehicula. Nunc et lorem leo.
-  
-  Nullam euismod nibh vel nunc consectetur hendrerit. Nam tempus, tortor porta laoreet fermentum, metus justo porttitor neque, in cursus elit purus et enim. In hac habitasse platea dictumst. In elementum enim vitae arcu fringilla, et aliquet odio venenatis. Fusce.
+The <strong>EMPHASIS project</strong>, which stands for "Empowering Decision Making with Higher Productivity 
+by Means of HyperAutomation," is an initiative dedicated to advancing the <strong>hyperautomation of back-office tasks</strong> 
+through cutting-edge AI technologies, including <strong>Natural Language Processing (NLP)</strong> and speech processing. 
+The project's primary goal is to support companies in their <strong>digital transformation</strong> by creating a versatile platform 
+that can process <strong>unstructured data</strong>—such as documents and audio from calls—and convert it into 
+structured, actionable information.
 </p>
-<img src="../../assets/figures/avatar.jpg" alt="Proyecto 1">
-<p>Algunas explicaciones más...</p>
-<audio controls>
-  <source src="../../assets/projects/email_clf/email_clf.m4a" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
+
+<p>
+My team and I contributed to the development of the NLP components of the project, focusing on building key technological modules 
+for <strong>Cognitive Document Automation (CDA)</strong>. These modules were designed to be adaptable across various use cases 
+and languages, aligning with the project's <strong>low-code/no-code philosophy</strong>.
+</p>
+
+<p>
+Our main areas of development included:
+</p>
+
+<ul>
+  <li>
+    <strong>Text and Document Classification:</strong> We developed tools for extracting multi-format documents, fine-tuning 
+    Large Language Models (LLMs), and automatically classifying texts and documents. This enabled the system to categorize 
+    items such as invoices, delivery notes, and building permits, significantly streamlining their processing.
+  </li>
+  <li>
+    <strong>Named Entity Recognition and Anonymization (NERC):</strong> We created a module to identify and classify specific 
+    entities within a text—such as names, locations, and other sensitive information. A key feature of this module is 
+    its <strong>anonymization capability</strong>, which replaces detected entities in a configurable way to ensure data privacy.
+  </li>
+  <li>
+    <strong>Question Answering (QA):</strong> We developed a module that allows users to extract answers from large corpora 
+    of text. It supports three search modes: <strong>semantic similarity</strong>, <strong>extractive QA</strong>, and 
+    <strong>lexical search</strong>, making it a powerful tool for information retrieval in environments like FAQs.
+  </li>
+</ul>
+
+<p>
+These modules were implemented as <strong>REST APIs</strong> and integrated into the EMPHASIS platform, where they can be 
+combined into configurable processing pipelines. Our work on these components delivered a <strong>flexible and powerful 
+hyperautomation solution</strong>, capable of adapting to the unique needs of different clients and domains.
+</p>
