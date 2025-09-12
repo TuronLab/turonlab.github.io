@@ -297,7 +297,8 @@ img, video, iframe {
 .activity-card img {
     width: 100%;
     height: 150px;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
 }
 
 .activity-card:hover {
@@ -327,6 +328,15 @@ img, video, iframe {
     z-index: 10;
 }
 
+
+/* New class to make the image fit the width */
+.activity-card img.fit-to-width {
+    object-fit: cover;
+}
+
+.activity-card:hover {
+    transform: translateY(-5px);
+}
 
 
 /* --- 3.5 Popups --- */
