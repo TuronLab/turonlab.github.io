@@ -1,17 +1,29 @@
 [
     {
-        "title": "Activity 1",
-        "thumbnail": "assets/activities/activity1-thumb.jpg",
-        "content": "display_conf/activities_html/activity1.html"
+        "title": "Identity Theft Workshop",
+        "thumbnail": "assets/activities/eithos_workshop/IdentityTheftWorkshop.png",
+        "content": "assets/activities/eithos_workshop/activity.html"
     },
     {
-        "title": "Activity 2",
-        "thumbnail": "assets/activities/activity1-thumb.jpg",
-        "content": "display_conf/activities_html/activity1.html"
+        "title": "INCYBER Forum 2025",
+        "thumbnail": "assets/activities/incyber_forum_2025/incyber.png",
+        "content": "assets/activities/incyber_forum_2025/activity.html"
     },
     {
-        "title": "Activity 3",
-        "thumbnail": "assets/activities/activity3-thumb.jpg",
-        "content": "display_conf/activities_html/activity1.html"
+        "title": "ICICT 2024",
+        "thumbnail": "assets/activities/icict_2024/icict.png",
+        "content": "assets/activities/icict_2024/activity.html",
+        "fitToWidth": false
+    },
+    {
+        "title": "SEPLN 2023",
+        "thumbnail": "assets/activities/sepln_2023/sepln2023.png",
+        "content": "assets/activities/sepln_2023/activity.html",
+        "fitToWidth": false
+    },
+    {
+        "title": "SEPLN 2022",
+        "thumbnail": "assets/activities/sepln_2022/sepln2022.jpg",
+        "content": "assets/activities/sepln_2022/activity.html"
     }
 ]
