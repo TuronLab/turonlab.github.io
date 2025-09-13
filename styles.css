@@ -16,6 +16,10 @@ img, video, iframe {
     height: auto;
 }
 
+a {
+    text-decoration: none;
+}
+
 /* =======================================
    === 2. Main Layout  ===
    ======================================= */
@@ -380,6 +384,16 @@ img, video, iframe {
     font-size: 24px;
     cursor: pointer;
     color: #333;
+}
+
+.popup-figure {
+  text-align: center;
+}
+
+.popup-figure img {
+  width: 90%;
+  height: auto;
+  border-radius: 12px;
 }
 
 /* Specific styles for the general popup */
