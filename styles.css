@@ -482,10 +482,9 @@ a {
    ======================================= */
 
 /* ------------------------------------------------------------------
-   === Estilos para pantallas <= 992px (Menú de navegación) ===
+   === styles for screens <= 992px (Navigation menu) ===
    ------------------------------------------------------------------ */
 @media (max-width: 1100px) {
-    /* Menú de pestañas */
     .tabs-container {
         flex-direction: column;
         align-items: flex-end;
@@ -523,7 +522,7 @@ a {
 }
 
 /* ------------------------------------------------------------------
-   === Estilos para pantallas <= 768px (Barra lateral de contacto) ===
+   === Syles for screens <= 768px (left column) ===
    ------------------------------------------------------------------ */
 @media (max-width: 768px) {
     /* Layout */
@@ -577,7 +576,6 @@ a {
         border-bottom: none;
     }
 
-    /* Botón de alternancia y lista de contactos */
     .sidebar .sidebar-separator {
         margin-top: 0px;
     }
@@ -622,7 +620,7 @@ a {
 }
 
 /* ------------------------------------------------------------------
-   === Estilos para pantallas muy estrechas (<= 420px) ===
+   === Style for quite small screens (<= 420px) ===
    ------------------------------------------------------------------ */
 @media (max-width: 420px) {
     .sidebar .profile {
