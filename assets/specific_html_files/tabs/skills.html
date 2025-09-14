@@ -1,193 +1,224 @@
-<h1>Skills</h1>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Skills — Full Update</title>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+<!-- Devicon (keep devicon icons) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
-<script src="https://cdn.jsdelivr.net/npm/@iconify/iconify@4.0.2/dist/iconify.min.js"></script>
+<!-- Font Awesome Free -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <style>
-    /* === Scoped Skills Section Styles === */
-    #skills-section {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0;
-    }
+  #skills-section {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+  }
 
-    .skills-block {
-        margin-bottom: 2rem;
-        border-radius: 12px;
-        overflow: hidden;
-        background: #fcfcfc;
-        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08); /* Sombra más suave */
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
+  .skills-block {
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fcfcfc;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
 
-    .skills-block:hover {
-        transform: translateY(-4px); /* Efecto más pronunciado al pasar el ratón */
-        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
-    }
+  .skills-block:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+  }
 
-    .skills-block header {
-        display: flex;
-        align-items: center;
-        gap: 0.7rem;
-        padding: 1rem 1.5rem;
-        background-color: #1abc9c; /* Color de tu barra lateral */
-        color: #fff;
-    }
+  .skills-block header {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 1rem 1.5rem;
+    background-color: #1abc9c;
+    color: #fff;
+  }
 
-    .skills-block header h3 {
-        margin: 0;
-        font-size: 1.25rem;
-        text-transform: uppercase; /* Volvemos a mayúsculas */
-        letter-spacing: 0.5px;
-        font-weight: 600; /* Texto en negrita para más presencia */
-    }
+  .skills-block header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+  }
 
-    .section-icon {
-        font-size: 1.5rem;
-        color: #fff;
-    }
+  .section-icon, .skill i[class^="fa-"], .skill i[class*=" fa-"], .skill i[class^="devicon-"], .skill img {
+    font-size: 1.6rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+  
+  .skill img.flag {
+    height: 1.2rem;       /* Control height */
+    width: auto;          /* Maintain aspect ratio */
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 2px;   /* optional: slightly rounded corners */
+  }
 
-    .skills-grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        padding: 1rem 1.5rem 1.5rem 1.5rem;
-        align-items: center;
-    }
+  .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem 1.5rem 1.5rem 1.5rem;
+    align-items: center;
+  }
 
-    .skill {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.6rem;
-        background: #fff; /* Fondo blanco */
-        border: 1px solid #dcdfe3;
-        border-radius: 6px;
-        padding: 0.5rem 0.75rem;
-        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-        cursor: default;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Sombra de tarjeta */
-    }
+  .skill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: #fff;
+    border: 1px solid #dcdfe3;
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    cursor: default;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  }
 
-    .skill:hover {
-        transform: translateY(-2px); /* Efecto de flotar */
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-        border-color: #99a2ad; /* Borde más oscuro al pasar el ratón */
-    }
+  .skill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+    border-color: #99a2ad;
+  }
 
-    .skill i[class^="devicon-"], .skill i[class*=" devicon-"], .skill .iconify {
-        font-size: 1.5rem;
-        line-height: 1;
-    }
-    
-    .skill .iconify {
-        font-size: 1.3rem;
-    }
+  .label {
+    font-weight: 600;
+    color: #333;
+  }
 
-    .label {
-        font-weight: 600;
-        color: #333;
-    }
+  .sub {
+    display: block;
+    font-size: 0.75rem;
+    color: #666;
+  }
 
-    .sub {
-        display: block;
-        font-size: 0.75rem;
-        color: #666;
-    }
+  .skill-icon-group {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+  }
 
-    .skill-icon-group {
-        display: flex;
-        align-items: center;
-        gap: 0.2rem;
-    }
+  /* === Colored Icons === */
+  .fa-robot { color: #9b59b6; }
+  .fa-lightbulb { color: #f1c40f; }
+  .fa-book { color: #e67e22; }
+  .fa-cogs { color: #3498db; }
+  .fa-eye { color: #2ecc71; }
+  .fa-repeat { color: #8e44ad; }
+  .fa-microchip { color: #34495e; }
+  .pcb-icon { color: #27ae60; }  /* PCB green */
 </style>
+</head>
+<body>
+<main id="skills-section">
+  <h1>Skills</h1>
 
-<div class="skills-block" aria-labelledby="languages">
+  <!-- Languages -->
+  <div class="skills-block" aria-labelledby="languages">
     <header>
-        <span class="iconify section-icon" data-icon="mdi:translate"></span>
-        <h3 id="languages">Languages</h3>
+      <i class="fa-solid fa-language section-icon"></i>
+      <h3 id="languages">Languages</h3>
     </header>
     <div class="skills-grid">
-        <div class="skill">
-            <span class="iconify" data-icon="flag:es"></span>
-            <span class="label">Spanish<span class="sub">Native</span></span>
+      <div class="skill">
+        <img class="flag" src="https://flagcdn.com/es.svg" alt="Spanish flag">
+        <span class="label">Spanish<span class="sub">Native</span></span>
         </div>
         <div class="skill">
-            <span class="iconify" data-icon="flag:gb"></span>
-            <span class="label">English<span class="sub">Professional</span></span>
+        <img class="flag" src="https://flagcdn.com/gb.svg" alt="English flag">
+        <span class="label">English<span class="sub">Professional</span></span>
         </div>
         <div class="skill">
-            <span class="iconify" data-icon="flag:fr"></span>
-            <span class="label">French<span class="sub">Basic</span></span>
+        <img class="flag" src="https://flagcdn.com/fr.svg" alt="French flag">
+        <span class="label">French<span class="sub">Basic</span></span>
         </div>
     </div>
-</div>
+  </div>
 
-<div class="skills-block" aria-labelledby="prog">
+  <!-- Programming -->
+  <div class="skills-block" aria-labelledby="prog">
     <header>
-        <span class="iconify section-icon" data-icon="mdi:code-braces"></span>
-        <h3 id="prog">Programming</h3>
+      <i class="fa-solid fa-code section-icon"></i>
+      <h3 id="prog">Programming</h3>
     </header>
     <div class="skills-grid">
-        <div class="skill"><i class="devicon-python-plain colored"></i><span class="label">Python</span></div>
-        <div class="skill"><i class="devicon-matlab-plain colored"></i><span class="label">MATLAB</span></div>
-        <div class="skill"><i class="devicon-java-plain colored"></i><span class="label">Java</span></div>
-        <div class="skill"><i class="devicon-c-plain colored"></i><span class="label">C</span></div>
+      <div class="skill"><i class="devicon-python-plain colored"></i><span class="label">Python</span></div>
+      <div class="skill"><i class="devicon-matlab-plain colored"></i><span class="label">MATLAB</span></div>
+      <div class="skill"><i class="devicon-java-plain colored"></i><span class="label">Java</span></div>
+      <div class="skill"><i class="devicon-c-plain colored"></i><span class="label">C</span></div>
     </div>
-</div>
+  </div>
 
-<div class="skills-block" aria-labelledby="ai">
+  <!-- Artificial Intelligence -->
+  <div class="skills-block" aria-labelledby="ai">
     <header>
-        <span class="iconify section-icon" data-icon="mdi:brain"></span>
-        <h3 id="ai">Artificial Intelligence</h3>
+      <i class="fa-solid fa-brain section-icon"></i>
+      <h3 id="ai">Artificial Intelligence</h3>
     </header>
     <div class="skills-grid">
-        <div class="skill"><span class="iconify" data-icon="mdi:translate-variant"></span><span class="label">Natural Language Processing</span></div>
-        <div class="skill"><span class="iconify" data-icon="mdi:brain"></span><span class="label">Large Language Models</span></div>
-        <div class="skill">
-            <span class="iconify" data-icon="mdi:book-search-outline"></span>
-            <span class="label">RAG<span class="sub">Retrieval-Augmented Generation</span></span>
-        </div>
-        <div class="skill"><span class="iconify" data-icon="mdi:cog-outline"></span><span class="label">MLOps</span></div>
-        <div class="skill"><span class="iconify" data-icon="mdi:eye-outline"></span><span class="label">Computer Vision</span></div>
-        <div class="skill"><span class="iconify" data-icon="mdi:robot-outline"></span><span class="label">Machine Learning</span></div>
-        <div class="skill"><span class="iconify" data-icon="mdi:lightbulb-on-outline"></span><span class="label">Active Learning</span></div>
+      <div class="skill"><i class="fa-solid fa-robot"></i><span class="label">NLP</span></div>
+      <div class="skill"><i class="fa-solid fa-brain"></i><span class="label">Large Language Models</span></div>
+      <div class="skill"><i class="fa-solid fa-book"></i><span class="label">RAG<span class="sub">Retrieval-Augmented Generation</span></span></div>
+      <div class="skill"><i class="fa-solid fa-cogs"></i><span class="label">MLOps</span></div>
+      <div class="skill"><i class="fa-solid fa-eye"></i><span class="label">Computer Vision</span></div>
+      <div class="skill"><i class="fa-solid fa-robot"></i><span class="label">Machine Learning</span></div>
+      <div class="skill"><i class="fa-solid fa-lightbulb"></i><span class="label">Active Learning</span></div>
     </div>
-</div>
+  </div>
 
-<div class="skills-block" aria-labelledby="tools">
+  <!-- Tools & Frameworks -->
+  <div class="skills-block" aria-labelledby="tools">
     <header>
-        <span class="iconify section-icon" data-icon="mdi:toolbox-outline"></span>
-        <h3 id="tools">Tools &amp; Frameworks</h3>
+      <i class="fa-solid fa-toolbox section-icon"></i>
+      <h3 id="tools">Tools & Frameworks</h3>
     </header>
     <div class="skills-grid">
-        <div class="skill"><i class="devicon-huggingface-original colored"></i><span class="label">Hugging Face</span></div>
-        <div class="skill"><i class="devicon-pytorch-original colored"></i><span class="label">PyTorch</span></div>
-        <div class="skill"><i class="devicon-tensorflow-original colored"></i><span class="label">TensorFlow</span></div>
-        <div class="skill"><i class="devicon-docker-plain colored"></i><span class="label">Docker</span></div>
-        <div class="skill"><i class="devicon-fastapi-plain colored"></i><span class="label">FastAPI</span></div>
-        <div class="skill"><i class="devicon-azure-plain colored"></i><span class="label">Azure</span></div>
-        <div class="skill">
-            <span class="skill-icon-group">
-                <i class="devicon-mysql-original colored" title="SQL"></i>
-                <i class="devicon-oracle-original colored" title="Oracle"></i>
-            </span>
-            <span class="label">Databases<span class="sub">SQL, Oracle</span></span>
-        </div>
+      <div class="skill">
+        <img src="https://huggingface.co/front/assets/huggingface_logo.svg" alt="Hugging Face" width="30">
+        <span class="label">Hugging Face</span>
+      </div>
+      <div class="skill"><i class="devicon-pytorch-original colored"></i><span class="label">PyTorch</span></div>
+      <div class="skill"><i class="devicon-tensorflow-original colored"></i><span class="label">TensorFlow</span></div>
+      <div class="skill"><i class="devicon-docker-plain colored"></i><span class="label">Docker</span></div>
+      <div class="skill"><i class="devicon-fastapi-plain colored"></i><span class="label">FastAPI</span></div>
+      <div class="skill"><i class="devicon-azure-plain colored"></i><span class="label">Azure</span></div>
+      <div class="skill">
+        <span class="skill-icon-group">
+          <i class="devicon-mysql-original colored" title="SQL"></i>
+          <i class="devicon-oracle-original colored" title="Oracle"></i>
+        </span>
+        <span class="label">Databases<span class="sub">SQL, Oracle</span></span>
+      </div>
     </div>
-</div>
+  </div>
 
-<div class="skills-block" aria-labelledby="others">
+  <!-- Others -->
+  <div class="skills-block" aria-labelledby="others">
     <header>
-        <span class="iconify section-icon" data-icon="mdi:widgets-outline"></span>
-        <h3 id="others">Others</h3>
+      <i class="fa-solid fa-cube section-icon"></i>
+      <h3 id="others">Others</h3>
     </header>
     <div class="skills-grid">
-        <div class="skill"><span class="iconify" data-icon="mdi:repeat-variant"></span><span class="label">CI/CD</span></div>
-        <div class="skill"><span class="iconify" data-icon="mdi:integrated-circuit-chip"></span><span class="label">VHDL</span></div>
-        <div class="skill"><span class="iconify" data-icon="mdi:circuit-board"></span><span class="label">PCB design</span></div>
-        <div class="skill"><i class="devicon-arduino-plain colored"></i><span class="label">Arduino</span></div>
-        <div class="skill"><span class="iconify" data-icon="mdi:cube-outline"></span><span class="label">3D Design</span></div>
+      <div class="skill"><i class="fa-solid fa-repeat"></i><span class="label">CI/CD</span></div>
+      <div class="skill"><i class="fa-solid fa-microchip"></i><span class="label">VHDL</span></div>
+      <div class="skill"><i class="fa-solid fa-microchip pcb-icon"></i><span class="label">PCB design</span></div>
+      <div class="skill"><i class="devicon-arduino-plain colored"></i><span class="label">Arduino</span></div>
+      <div class="skill"><i class="fa-solid fa-cube"></i><span class="label">3D Design</span></div>
     </div>
-</div>
+  </div>
+</main>
+</body>
+</html>
