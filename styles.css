@@ -444,6 +444,10 @@ a {
     overflow-y: auto;
 }
 
+.popup-content h2 {
+    text-align: left;
+}
+
 .popup-close {
     position: absolute;
     top: 10px;
