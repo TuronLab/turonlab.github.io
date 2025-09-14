@@ -636,3 +636,55 @@ a {
         height: 32px;
     }
 }
+/* ------------------------------------------------------------------
+   === Styles for audios ===
+   ------------------------------------------------------------------ */
+
+.tldr-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 5px;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+.tldr-box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: #f0f0f0ec;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  max-width: 100%;
+  box-sizing: border-box;
+  flex-wrap: nowrap;
+}
+.tldr-text {
+  display: flex;
+  flex-direction: column;
+  font-style: italic;
+  gap: 0.25rem;
+  color: grey;
+  font-size: 0.9em;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.tldr-audio {
+  height: 28px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex: 0 0 auto;
+  max-width: 100%;
+}
+/* Responsive: stack vertically on small screens */
+@media (max-width: 600px) {
+  .tldr-box {
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .tldr-audio {
+    width: 100%;
+  }
+}
