@@ -268,6 +268,11 @@
 
         if (aboutPopup) {
             aboutPopup.classList.add('is-open');
+
+            // scroll the actual scrollable container to top
+            const scrollContainer = aboutPopup.querySelector('.popup-content');
+            if (scrollContainer) scrollContainer.scrollTop = 0;
+
             await loadAboutPage(aboutCurrent);
         } else {
             alert(typeof aboutPages[0] === 'string' ? aboutPages[0].replace(/<[^>]*>/g, '') : 'View content');
@@ -384,7 +389,13 @@
                     if (popupDescription) popupDescription.textContent = contentPath || 'No description.';
                 }
 
-                if (generalPopup) generalPopup.classList.add('is-open');
+                if (generalPopup) {
+                    generalPopup.classList.add('is-open');
+
+                    // scroll the actual scrollable container to top
+                    const scrollContainer = generalPopup.querySelector('.popup-content');
+                    if (scrollContainer) scrollContainer.scrollTop = 0;
+                }
             });
 
             card.addEventListener('keydown', (e) => {
