@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -41,9 +41,9 @@
     </aside>
 
 
-    <!-- Columna derecha -->
+    <!-- Right column -->
     <main class="content">
-      <!-- Contenedor vacío: los botones se generarán aquí -->
+      <!-- Void container. It will generate the buttons here -->
     <div class="tabs-container">
       <button class="tabs-hamburger" aria-label="Abrir menú" aria-expanded="false">
           ☰
@@ -52,12 +52,10 @@
     </div>
 
 
-      <!-- Contenedor vacío donde JS creará los div.tab-content -->
-      <!-- Nota: no debes añadir manualmente aquí divs con id igual a las pestañas, el JS los generará -->
     </main>
   </div>
 
-  <!-- About pop-up (se mantiene en el index porque es global) -->
+  <!-- About pop-up  -->
   <div class="popup about-popup" id="about-popup" aria-hidden="true">
     <div class="popup-content" role="dialog" aria-modal="true"> <!-- aria-labelledby="about-popup-title"> -->
       <span class="popup-close" role="button" aria-label="Close">&times;</span>
@@ -81,8 +79,6 @@
     </div>
   </div>
 
-  <!-- Scripts: carga el js dinámico que genera pestañas y maneja popups -->
-  <!-- Asegúrate de sustituir tu tabs.js por la versión dinámica que te pasé -->
   <script src="tabs.js" defer></script>
 </body>
 </html>
