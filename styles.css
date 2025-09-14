@@ -88,7 +88,8 @@ a {
 .sidebar-separator {
     border: 0;
     border-top: 1px solid rgba(255, 255, 255, 0.3);
-    margin: 15px 0;
+    margin-top: 10px;
+    margin-bottom: 15px;
     width: 100%;
     padding-bottom: 5px;
 }
@@ -112,6 +113,11 @@ a {
     font-size: 0.9em;
 }
 
+.profile p.tagline{
+    margin-top: 0;
+    color: #888;
+}
+
 .contact-info {
     list-style: none;
     width: 100%;
@@ -127,6 +133,15 @@ a {
     gap: 15px;
 }
 
+.contact-item a {
+  text-decoration: none;
+  color: #d0d0d0;
+  transition: color 0.2s;
+}
+.contact-item a:hover {
+  color: #00bfa6; /* accent color */
+}
+
 .contact-icon {
     font-size: 1.2em;
     color: #1abc9c;
@@ -135,6 +150,10 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.contact-icon i {
+  font-size: 1.2rem;
+  color: #00bfa6;
 }
 
 .contact-text {
@@ -290,8 +309,9 @@ a {
 /* --- 3.3 Projects --- */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
     gap: 20px;
+    justify-content: center;
 }
 
 .project-card {
@@ -302,6 +322,12 @@ a {
     cursor: pointer;
     text-align: center;
     transition: transform 0.2s ease;
+}
+
+.project-card.h3 {
+    justify-content: center;
+    align-items: center;
+    display: flex,
 }
 
 /* Default image style with 'contain' */
@@ -324,8 +350,9 @@ a {
 /* --- 3.4 Activities --- */
 .activities-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
     gap: 20px;
+    justify-content: center;
 }
 .activity-card {
     background: white;
@@ -539,7 +566,7 @@ a {
     }
 
     .sidebar .profile p {
-        margin: 0;
+        margin: 3px;
         font-size: 0.85rem;
     }
     
@@ -549,6 +576,9 @@ a {
     }
 
     /* Botón de alternancia y lista de contactos */
+    .sidebar .sidebar-separator {
+        margin-top: 0px;
+    }
     .sidebar .contact-toggle.corner {
         display: inline-flex;
         top: 8px;
