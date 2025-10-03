@@ -13,30 +13,6 @@ html, body {
     background-color: #bdc3c7;
 }
 
-@media (min-width: 1200px) {
-    body {
-        font-size: 1.1rem;
-    }
-    .sidebar {
-        min-width: 250px;
-    }
-    .tab-button {
-        font-size: 1rem;
-    }
-}
-
-@media (min-width: 1600px) {
-    body {
-        font-size: 1.2rem;
-    }
-    .sidebar {
-        min-width: 250px;
-    }
-    .tab-button {
-        font-size: 1rem;
-    }
-}
-
 img, video, iframe {
     max-width: 100%; 
     height: auto;
@@ -513,6 +489,28 @@ a {
 /* =======================================
    === 4. Media Queries ===
    ======================================= */
+
+/* ------------------------------------------------------------------
+   === styles for screens >= 1200px (Navigation menu) ===
+   ------------------------------------------------------------------ */
+
+@media (min-width: 1200px) {
+    body {
+        font-size: 1.1rem;
+    }
+    .sidebar {
+        min-width: 250px;
+    }
+    .tab-button {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 1600px) {
+    body {
+        font-size: 1.2rem;
+    }
+}
 
 /* ------------------------------------------------------------------
    === styles for screens <= 992px (Navigation menu) ===
