@@ -491,24 +491,18 @@ a {
    ======================================= */
 
 /* ------------------------------------------------------------------
-   === styles for screens >= 1200px (Navigation menu) ===
+   === styles for screens >= 1600px (Navigation menu) ===
    ------------------------------------------------------------------ */
-
-@media (min-width: 1200px) {
-    body {
-        font-size: 1.1rem;
-    }
-    .sidebar {
-        min-width: 250px;
-    }
-    .tab-button {
-        font-size: 1rem;
-    }
-}
 
 @media (min-width: 1600px) {
     body {
         font-size: 1.2rem;
+    }
+    .sidebar {
+        min-width: 250px !important;
+    }
+    .tab-button {
+        font-size: 1rem !important;
     }
 }
 
