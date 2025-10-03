@@ -14,15 +14,21 @@ html, body {
 }
 
 @media (min-width: 1400px) {
-  body {
-    font-size: 1.1rem;
-  }
+    body {
+        font-size: 1.1rem;
+    }
+    .sidebar {
+        min-width: 250px;
+    }
+    .tab-button {
+        font-size: 1rem;
+    }
 }
 
 @media (min-width: 1600px) {
-  body {
-    font-size: 1.2rem;
-  }
+    body {
+        font-size: 1.2rem;
+    }
 }
 
 img, video, iframe {
