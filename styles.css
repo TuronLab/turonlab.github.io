@@ -13,7 +13,7 @@ html, body {
     background-color: #bdc3c7;
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1200px) {
     body {
         font-size: 1.1rem;
     }
@@ -28,6 +28,12 @@ html, body {
 @media (min-width: 1600px) {
     body {
         font-size: 1.2rem;
+    }
+    .sidebar {
+        min-width: 250px;
+    }
+    .tab-button {
+        font-size: 1rem;
     }
 }
 
