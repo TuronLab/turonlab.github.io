@@ -1,0 +1,57 @@
+<!-- Meta info row -->
+<div style="display: flex; flex-wrap: wrap; margin-bottom: 1rem; align-items: center;">
+  <!-- Published date -->
+  <p style="color: grey; padding: 0rem 1rem; margin: 0;">
+    <i>Published on October 14, 2025 <a href="https://link.springer.com/chapter/10.1007/978-3-032-08462-0_25" target="_blank">[Paper]</a></i> 
+  </p>
+  
+  <!-- TL;DR centered -->  
+  <div class="tldr-container">
+    <div class="tldr-box">
+      <!-- TL;DR text -->
+      <div class="tldr-text">
+        <span>TL;DR</span>
+        <span>AI-generated audio summary</span>
+      </div>
+
+      <!-- Audio player -->
+      <audio controls class="tldr-audio">
+        <source src="assets/projects/al/al_summary.m4a" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Content -->
+<p>
+This project, titled <strong>“Perplexity, Uncertainty, and the Limits of Active Learning”</strong>, explores the boundaries of <strong>Active Learning (AL)</strong> when applied to <strong>Named Entity Recognition and Classification (NERC)</strong> tasks. Conducted within the context of large language models (LLMs), the study investigates how dataset complexity—measured through <strong>perplexity</strong> and <strong>uncertainty</strong>—affects the performance and stability of different AL query strategies.
+</p>
+
+<p>
+We evaluated <strong>six query algorithms</strong>—including random, diversity-based, and uncertainty-based strategies—across <strong>seven diverse datasets</strong> such as eHealth-KD, LivingNER, MedProcNER, and MultiCoNER. Two LLMs, <strong>multilingual BERT</strong> and <strong>EriBERTa</strong>, were fine-tuned in an iterative AL loop to observe how effectively each method selected the most informative samples under varying data conditions.
+</p>
+
+<p>
+Our findings reveal that AL algorithms often <strong>struggle in high-uncertainty or high-perplexity scenarios</strong>, where their performance tends to degrade and results become inconsistent across models. In contrast, datasets with lower complexity—such as LivingNER or MedProcNER—showed clear early-stage performance gains when applying uncertainty-based or diversity-driven selection strategies. These insights emphasize that the success of AL is <strong>strongly dependent on both dataset and model characteristics</strong>.
+</p>
+
+<figure style="text-align: center; margin: 2em 0;">
+  <img src="assets/projects/al/al_f1_results.png" alt="Active Learning performance overview" style="width: 90%; height: auto;">
+  <figcaption style="font-size: 0.9em; color: #555; margin-top: 0.5em;">
+    F1-score evolution across datasets as additional training data is annotated using different Active Learning query strategies.
+  </figcaption>
+</figure>
+
+<p>
+This work highlights an important limitation in current AL methods: <strong>lack of robustness and generalizability</strong> across domains. The variability observed between datasets and model types suggests that future research should focus on designing <strong>hybrid AL strategies</strong> capable of adapting to complex, noisy, and high-uncertainty data. By better capturing informative features, such methods could make data-efficient training with LLMs more reliable and scalable for real-world applications.
+</p>
+
+<div style="font-size: 0.85em; color: #555; border-top: 1px solid #ddd; margin-top: 2em; padding-top: 1em;">
+  <p>
+    More details can be found in the publication: <em>Turón, P., &amp; Cuadros, M. (2025). “Perplexity, Uncertainty, and the Limits of Active Learning.”</em> Fundación Vicomtech, BRTA.
+  </p>
+</div>
+

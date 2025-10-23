@@ -1,5 +1,10 @@
 [
     {
+        "title": "Perplexity, Uncertainty, and the Limits of Active Learning",
+        "thumbnail": "assets/projects/al/temporal_thumbnail.png",
+        "content": "assets/projects/al/project.html"
+    },
+    {
         "title": "Early Detection of Mental Disorders",
         "thumbnail": "assets/projects/mental_disorders/mental_disorders.PNG",
         "content": "assets/projects/mental_disorders/project.html"
@@ -25,11 +30,6 @@
         "thumbnail": "assets/projects/eithos/eithos.jpg",
         "content": "assets/projects/eithos/project.html",
         "fitToWidth": false
-    },
-    {
-        "title": "Perplexity, Uncertainty, and the Limits of Active Learning",
-        "thumbnail": "assets/projects/al/temporal_thumbnail.png",
-        "comingSoon": true
     },
     {
         "title": "Impact of Multimodal LLMs for Document Understanding",
