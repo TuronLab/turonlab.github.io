@@ -32,6 +32,11 @@
         "fitToWidth": false
     },
     {
+        "title": "Learning Without Forgetting: Online Learning for NERC",
+        "thumbnail": "assets/projects/ol/thumbnail.png",
+        "comingSoon": true
+    },
+    {
         "title": "Impact of Multimodal LLMs for Document Understanding",
         "thumbnail": "assets/projects/doc_under/temporal_thumbnail.png",
         "comingSoon": true
